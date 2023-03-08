@@ -52,6 +52,18 @@ namespace Mission09_red328
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("categoryPage",
+                    "{category}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("Paging",
+                    "Page{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapDefaultControllerRoute();
             });
         }
