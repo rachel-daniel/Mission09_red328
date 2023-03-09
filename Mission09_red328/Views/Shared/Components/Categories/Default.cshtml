@@ -7,6 +7,6 @@
     @foreach (string c in Model)
     {
         <a asp-controller="Home" asp-action="Index" asp-route-category="@c" asp-route-pageNum="1"
-            class="btn @(ViewBag.SelectedCategory == c? "btn-primary" : "btn-outline-secondary")">@c</a>
+            class="btn bg-info text-white @(ViewBag.SelectedCategory == c? "bg-dark" : "btn-outline-secondary")">@c</a>
     }
 </div>
