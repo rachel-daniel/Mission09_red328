@@ -22,6 +22,7 @@ namespace Mission09_red328
             Configuration = temp;
         }
 
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -35,6 +36,11 @@ namespace Mission09_red328
 
             services.AddScoped<IBookstoreRepository, EfBookstoreRepository>();
 
+            services.AddRazorPages();
+
+            //set up sessions
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +53,7 @@ namespace Mission09_red328
 
             // use files in wwwroot
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -65,6 +71,8 @@ namespace Mission09_red328
                     new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
