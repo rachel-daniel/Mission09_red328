@@ -20,5 +20,6 @@ namespace Mission09_red328.Models
         }
 
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Purchase> Purchases { get; set; }
     }
 }

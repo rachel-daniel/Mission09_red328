@@ -35,6 +35,7 @@ namespace Mission09_red328
             });
 
             services.AddScoped<IBookstoreRepository, EfBookstoreRepository>();
+            services.AddScoped<IPurchaseRepository, EfPurchaseRepository>();
 
             services.AddRazorPages();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -49,6 +50,7 @@ namespace Mission09_red328.Models
 
     public class CartLineItem
     {
+        [Key]
         public int LineId { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }
